@@ -18,6 +18,13 @@ class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     private var viewModel: DetailViewModelProtocol
+    private var cancellables = Set<AnyCancellable>()
+
+    private var isLoading = true {
+        didSet {
+            configureLoading()
+        }
+    }
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -33,10 +40,9 @@ class DetailViewController: UIViewController {
         return view
     }()
 
-    private let coverImageView: UIImageView = {
-        let imageView = UIImageView()
+    private let coverImageView: LoadingImageView = {
+        let imageView = LoadingImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "photo")
         return imageView
     }()
 
@@ -44,7 +50,6 @@ class DetailViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .heavy)
         label.textAlignment = .center
-        label.text = "Get Unlimited Access"
         return label
     }()
 
@@ -54,27 +59,12 @@ class DetailViewController: UIViewController {
         label.textColor = .darkGray
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.text = "STLToday.com is where your story lives. Stay in the loop with unlimited access to articles, videos, and the E-edition."
         return label
     }()
 
-    private lazy var offerStackView: OfferStackView = {
-        let stackView = OfferStackView()
-        stackView.configure(
-            with: viewModel.offers,
-            selectedOfferPublisher: viewModel.selectedOfferPublisher.eraseToAnyPublisher()
-        )
-        stackView.onSelect = { [weak self] selectedOffer in
-            self?.viewModel.didTapOffer(selectedOffer)
-        }
-        return stackView
-    }()
+    private lazy var offerStackView = OfferStackView()
 
-    private lazy var benefitsLabel: BenefitStackView = {
-        let benefitsView = BenefitStackView()
-        benefitsView.configure(with: viewModel.benefits)
-        return benefitsView
-    }()
+    private lazy var benefitsStack = BenefitStackView()
 
     private let subscribeButton: UIButton = {
         let button = UIButton()
@@ -91,7 +81,6 @@ class DetailViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.text = "By starting your subscription, you agree to our Terms and Conditions and Privacy Policy."
         return label
     }()
 
@@ -104,9 +93,19 @@ class DetailViewController: UIViewController {
         return stackView
     }()
 
+    private let loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+
+        bindViewModel()
+        viewModel.viewDidLoad()
     }
 
     private func setupUI() {
@@ -116,6 +115,14 @@ class DetailViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
 
+        setupStackView()
+        setupConstraints()
+        setupGestures()
+
+        configureLoading()
+    }
+
+    private func setupStackView() {
         stackView.addArrangedSubview(coverImageView)
         stackView.addArrangedSubview(SpacerView(size: 20))
         stackView.addArrangedSubview(subscribeTitleLabel)
@@ -124,13 +131,11 @@ class DetailViewController: UIViewController {
         stackView.addArrangedSubview(SpacerView(size: 25))
         stackView.addArrangedSubview(offerStackView)
         stackView.addArrangedSubview(SpacerView(size: 30))
-        stackView.addArrangedSubview(benefitsLabel)
+        stackView.addArrangedSubview(benefitsStack)
         stackView.addArrangedSubview(SpacerView(size: 50))
         stackView.addArrangedSubview(subscribeButton)
         stackView.addArrangedSubview(SpacerView(size: 20))
         stackView.addArrangedSubview(disclaimerLabel)
-
-        setupConstraints()
     }
 
     private func setupConstraints() {
@@ -160,9 +165,84 @@ class DetailViewController: UIViewController {
             subscribeTitleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             subscribeSubtitleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             offerStackView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.9),
-            benefitsLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.85),
+            benefitsStack.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.85),
             subscribeButton.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             disclaimerLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8),
         ])
+    }
+
+    private func setupGestures() {
+        offerStackView.onSelect = { [weak self] selectedOffer in
+            self?.viewModel.didTapOffer(selectedOffer)
+        }
+    }
+
+    private func configureLoading() {
+        stackView.isHidden = isLoading
+        if isLoading {
+            view.addSubview(loadingIndicator)
+            NSLayoutConstraint.activate([
+                loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
+            loadingIndicator.removeFromSuperview()
+        }
+    }
+
+    private func bindViewModel() {
+        viewModel.subscriptionPagePublisher
+            .compactMap { $0 }
+            .sink { [weak self] subscriptionPage in
+                self?.configure(with: subscriptionPage)
+                self?.isLoading = false
+            }
+            .store(in: &cancellables)
+
+        viewModel.errorPublisher
+            .compactMap { $0 }
+            .sink { [weak self] errorMessage in
+                self?.showErrorAlert(message: errorMessage)
+            }
+            .store(in: &cancellables)
+    }
+
+    private func showErrorAlert(message: String) {
+        let alertController = UIAlertController(
+            title: "Error",
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            Task {
+                await self?.viewModel.fetchSubscriptionPage()
+            }
+        })
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+
+    func configure(with subscriptionPage: SubscriptionPage) {
+        Task {
+            await headerView.logoView.loadImage(from: subscriptionPage.headerLogo)
+        }
+        configure(with: subscriptionPage.subscription)
+    }
+
+    private func configure(with subscription: Subscription) {
+        Task {
+            await coverImageView.loadImage(from: subscription.coverImage)
+        }
+        subscribeTitleLabel.text = subscription.subscribeTitle
+        subscribeSubtitleLabel.text = subscription.subscribeSubtitle
+        offerStackView.configure(
+            with: subscription.offers,
+            selectedOfferPublisher: viewModel.selectedOfferPublisher.eraseToAnyPublisher()
+        )
+        benefitsStack.configure(with: subscription.benefits)
+        disclaimerLabel.text = subscription.disclaimer
     }
 }

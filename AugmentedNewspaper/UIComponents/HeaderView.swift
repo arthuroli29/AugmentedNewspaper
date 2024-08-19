@@ -8,11 +8,10 @@
 import UIKit
 
 class HeaderView: UIView {
-    private let headerLogo: UIImageView = {
-        let imageView = UIImageView()
+    let logoView: LoadingImageView = {
+        let imageView = LoadingImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "photo")
         return imageView
     }()
 
@@ -27,20 +26,20 @@ class HeaderView: UIView {
 
     private func setupUI() {
         backgroundColor = .label
-        addSubview(headerLogo)
+        addSubview(logoView)
         setupConstraints()
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            headerLogo.centerYAnchor.constraint(equalTo: centerYAnchor),
-            headerLogo.centerXAnchor.constraint(equalTo: centerXAnchor),
-            headerLogo.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
-            headerLogo.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
+            logoView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            logoView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            logoView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
+            logoView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
         ])
     }
 
-    private func configure(with image: UIImage) {
-        headerLogo.image = image
+    func configure(with image: UIImage) {
+        logoView.image = image
     }
 }

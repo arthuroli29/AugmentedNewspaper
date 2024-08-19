@@ -26,6 +26,9 @@
 		FAFFF9052C72F7EA00B60D8E /* BenefitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9042C72F7EA00B60D8E /* BenefitView.swift */; };
 		FAFFF9072C730A5F00B60D8E /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9062C730A5F00B60D8E /* SpacerView.swift */; };
 		FAFFF90D2C730D5400B60D8E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF90C2C730D5400B60D8E /* HeaderView.swift */; };
+		FAFFF9102C730F1A00B60D8E /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF90F2C730F1A00B60D8E /* UIImageViewExtensions.swift */; };
+		FAFFF9122C7311D500B60D8E /* LoadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9112C7311D500B60D8E /* LoadingImageView.swift */; };
+		FAFFF9142C73146F00B60D8E /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9132C73146F00B60D8E /* SubscriptionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		FAFFF9042C72F7EA00B60D8E /* BenefitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitView.swift; sourceTree = "<group>"; };
 		FAFFF9062C730A5F00B60D8E /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		FAFFF90C2C730D5400B60D8E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		FAFFF90F2C730F1A00B60D8E /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		FAFFF9112C7311D500B60D8E /* LoadingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImageView.swift; sourceTree = "<group>"; };
+		FAFFF9132C73146F00B60D8E /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 		FAFF91422C71879600BB1956 /* AugmentedNewspaper */ = {
 			isa = PBXGroup;
 			children = (
+				FAFFF90E2C730F1100B60D8E /* Extensions */,
 				FAFFF9082C730C8700B60D8E /* UIComponents */,
 				FAFF91772C719A0400BB1956 /* Modules */,
 				FAFF91432C71879600BB1956 /* AppDelegate.swift */,
@@ -188,6 +195,7 @@
 		FAFF91842C72E2BC00BB1956 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FAFFF9152C731B2700B60D8E /* Service */,
 				FAFF91812C72DA4800BB1956 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
@@ -197,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFF917F2C72BA1100BB1956 /* CircleButton.swift */,
+				FAFFF9112C7311D500B60D8E /* LoadingImageView.swift */,
 				FAFFF9062C730A5F00B60D8E /* SpacerView.swift */,
 				FAFFF90C2C730D5400B60D8E /* HeaderView.swift */,
 			);
@@ -219,6 +228,22 @@
 				FAFFF9042C72F7EA00B60D8E /* BenefitView.swift */,
 			);
 			path = Benefit;
+			sourceTree = "<group>";
+		};
+		FAFFF90E2C730F1100B60D8E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAFFF90F2C730F1A00B60D8E /* UIImageViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAFFF9152C731B2700B60D8E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FAFFF9132C73146F00B60D8E /* SubscriptionService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,17 +399,20 @@
 			files = (
 				FAFFF9072C730A5F00B60D8E /* SpacerView.swift in Sources */,
 				FAFF91802C72BA1100BB1956 /* CircleButton.swift in Sources */,
+				FAFFF9102C730F1A00B60D8E /* UIImageViewExtensions.swift in Sources */,
 				FAFF91482C71879600BB1956 /* DetailViewController.swift in Sources */,
 				FAFF91442C71879600BB1956 /* AppDelegate.swift in Sources */,
 				FAFF914E2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld in Sources */,
 				FAFF917E2C72B7E800BB1956 /* SubscriptionPage.swift in Sources */,
 				FAFF91462C71879600BB1956 /* SceneDelegate.swift in Sources */,
+				FAFFF9142C73146F00B60D8E /* SubscriptionService.swift in Sources */,
 				FAFFF9052C72F7EA00B60D8E /* BenefitView.swift in Sources */,
 				FAFF918C2C72F36700BB1956 /* Subscription.swift in Sources */,
 				FAFF91862C72E79800BB1956 /* OfferStackView.swift in Sources */,
 				FAFFF90D2C730D5400B60D8E /* HeaderView.swift in Sources */,
 				FAFF918A2C72F35000BB1956 /* Offer.swift in Sources */,
 				FAFF917A2C72B4E100BB1956 /* OfferView.swift in Sources */,
+				FAFFF9122C7311D500B60D8E /* LoadingImageView.swift in Sources */,
 				FAFF91882C72F29D00BB1956 /* BenefitStackView.swift in Sources */,
 				FAFF91822C72DA4800BB1956 /* DetailViewModel.swift in Sources */,
 			);
