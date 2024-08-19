@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		FAFF91442C71879600BB1956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91432C71879600BB1956 /* AppDelegate.swift */; };
 		FAFF91462C71879600BB1956 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91452C71879600BB1956 /* SceneDelegate.swift */; };
-		FAFF91482C71879600BB1956 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91472C71879600BB1956 /* ViewController.swift */; };
+		FAFF91482C71879600BB1956 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91472C71879600BB1956 /* DetailViewController.swift */; };
 		FAFF914E2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF914C2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld */; };
 		FAFF91502C71879900BB1956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFF914F2C71879900BB1956 /* Assets.xcassets */; };
 		FAFF915E2C71879900BB1956 /* AugmentedNewspaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF915D2C71879900BB1956 /* AugmentedNewspaperTests.swift */; };
 		FAFF91682C71879900BB1956 /* AugmentedNewspaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91672C71879900BB1956 /* AugmentedNewspaperUITests.swift */; };
 		FAFF916A2C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91692C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift */; };
+		FAFF917A2C72B4E100BB1956 /* OfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91792C72B4E100BB1956 /* OfferView.swift */; };
+		FAFF917E2C72B7E800BB1956 /* SubscriptionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */; };
+		FAFF91802C72BA1100BB1956 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF917F2C72BA1100BB1956 /* CircleButton.swift */; };
+		FAFF91822C72DA4800BB1956 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91812C72DA4800BB1956 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 		FAFF91402C71879600BB1956 /* AugmentedNewspaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedNewspaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFF91432C71879600BB1956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFF91452C71879600BB1956 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAFF91472C71879600BB1956 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAFF91472C71879600BB1956 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FAFF914D2C71879600BB1956 /* AugmentedNewspaper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AugmentedNewspaper.xcdatamodel; sourceTree = "<group>"; };
 		FAFF914F2C71879900BB1956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAFF91542C71879900BB1956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		FAFF91632C71879900BB1956 /* AugmentedNewspaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AugmentedNewspaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFF91672C71879900BB1956 /* AugmentedNewspaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedNewspaperUITests.swift; sourceTree = "<group>"; };
 		FAFF91692C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedNewspaperUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAFF91792C72B4E100BB1956 /* OfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferView.swift; sourceTree = "<group>"; };
+		FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPage.swift; sourceTree = "<group>"; };
+		FAFF917F2C72BA1100BB1956 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		FAFF91812C72DA4800BB1956 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +105,9 @@
 		FAFF91422C71879600BB1956 /* AugmentedNewspaper */ = {
 			isa = PBXGroup;
 			children = (
+				FAFF91772C719A0400BB1956 /* Modules */,
 				FAFF91432C71879600BB1956 /* AppDelegate.swift */,
 				FAFF91452C71879600BB1956 /* SceneDelegate.swift */,
-				FAFF91472C71879600BB1956 /* ViewController.swift */,
 				FAFF914F2C71879900BB1956 /* Assets.xcassets */,
 				FAFF91542C71879900BB1956 /* Info.plist */,
 				FAFF914C2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld */,
@@ -122,6 +130,50 @@
 				FAFF91692C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift */,
 			);
 			path = AugmentedNewspaperUITests;
+			sourceTree = "<group>";
+		};
+		FAFF91772C719A0400BB1956 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF91782C719A0600BB1956 /* SubscriptionDetail */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FAFF91782C719A0600BB1956 /* SubscriptionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF91842C72E2BC00BB1956 /* ViewModel */,
+				FAFF91832C72E2BA00BB1956 /* View */,
+				FAFF917B2C72B7AB00BB1956 /* Model */,
+			);
+			path = SubscriptionDetail;
+			sourceTree = "<group>";
+		};
+		FAFF917B2C72B7AB00BB1956 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAFF91832C72E2BA00BB1956 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF91472C71879600BB1956 /* DetailViewController.swift */,
+				FAFF91792C72B4E100BB1956 /* OfferView.swift */,
+				FAFF917F2C72BA1100BB1956 /* CircleButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAFF91842C72E2BC00BB1956 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF91812C72DA4800BB1956 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,10 +327,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAFF91482C71879600BB1956 /* ViewController.swift in Sources */,
+				FAFF91802C72BA1100BB1956 /* CircleButton.swift in Sources */,
+				FAFF91482C71879600BB1956 /* DetailViewController.swift in Sources */,
 				FAFF91442C71879600BB1956 /* AppDelegate.swift in Sources */,
 				FAFF914E2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld in Sources */,
+				FAFF917E2C72B7E800BB1956 /* SubscriptionPage.swift in Sources */,
 				FAFF91462C71879600BB1956 /* SceneDelegate.swift in Sources */,
+				FAFF917A2C72B4E100BB1956 /* OfferView.swift in Sources */,
+				FAFF91822C72DA4800BB1956 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
