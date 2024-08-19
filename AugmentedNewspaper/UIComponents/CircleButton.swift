@@ -62,7 +62,7 @@ class CircleButton: UIView {
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
+            imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
         ])
     }
 

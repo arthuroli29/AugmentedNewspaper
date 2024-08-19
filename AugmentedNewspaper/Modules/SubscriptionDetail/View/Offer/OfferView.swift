@@ -56,10 +56,13 @@ class OfferView: UIStackView {
     }
 
     private func setupGestures() {
-        circleButton.onTap = { [weak self] in
-            guard let self, let id = self.id else { return }
-            self.onSelect?(id)
-        }
+        circleButton.isUserInteractionEnabled = false
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTap)))
+    }
+
+    @objc private func didTap() {
+        guard let id = id else { return }
+        onSelect?(id)
     }
 
     func bindSelectedOffer(to selectedOfferPublisher: AnyPublisher<String?, Never>) {

@@ -104,3 +104,6 @@ vertical_whitespace:
 
 trailing_closure:
   only_single_muted_parameter: true
+
+trailing_comma:
+  mandatory_comma: true

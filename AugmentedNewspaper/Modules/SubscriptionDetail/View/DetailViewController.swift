@@ -22,28 +22,20 @@ class DetailViewController: UIViewController {
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .systemBackground
+        scrollView.alwaysBounceVertical = true
         return scrollView
     }()
 
-    private let contentView: UIView = {
-        let view = UIView()
+    private let headerView: HeaderView = {
+        let view = HeaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-    }()
-
-    private let headerView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .lightGray
-        imageView.image = UIImage(systemName: "photo")
-        return imageView
     }()
 
     private let coverImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .lightGray
         imageView.image = UIImage(systemName: "photo")
         return imageView
     }()
@@ -62,58 +54,35 @@ class DetailViewController: UIViewController {
         label.textColor = .darkGray
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.text = "STLToday.com is where your story lives. Stay in the loop with unlimited access to articles, videos, and the E-edition. STLToday.com is where your story lives. Stay in the loop with unlimited access to articles, videos, and the E-edition."
+        label.text = "STLToday.com is where your story lives. Stay in the loop with unlimited access to articles, videos, and the E-edition."
         return label
     }()
 
-    private lazy var offerStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 30
-
-        let offer1 = OfferView()
-        offer1.configure(with: Offer(price: 29.99, description: "Billed monthly. Renews on MM/DD/YY."), id: "abc")
-        let offer2 = OfferView()
-        offer2.configure(with: Offer(price: 49.99, description: "Billed annually."), id: "def")
-
-        [offer1, offer2].forEach {
-            $0.bindSelectedOffer(to: viewModel.selectedOfferPublisher.eraseToAnyPublisher())
-            $0.onSelect = { [weak self] id in
-                self?.viewModel.selectedOffer = id
-            }
-            stackView.addArrangedSubview($0)
+    private lazy var offerStackView: OfferStackView = {
+        let stackView = OfferStackView()
+        stackView.configure(
+            with: viewModel.offers,
+            selectedOfferPublisher: viewModel.selectedOfferPublisher.eraseToAnyPublisher()
+        )
+        stackView.onSelect = { [weak self] selectedOffer in
+            self?.viewModel.didTapOffer(selectedOffer)
         }
-
-        let separator = UIView()
-        separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.widthAnchor.constraint(equalToConstant: 1).isActive = true
-        separator.backgroundColor = .separator
-
-        stackView.addSubview(separator)
-        separator.centerYAnchor.constraint(equalTo: stackView.centerYAnchor).isActive = true
-        separator.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
-        separator.heightAnchor.constraint(equalTo: stackView.heightAnchor).isActive = true
-
         return stackView
     }()
 
-    private let benefitsLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.text = "What is \"News+\"?"
-        return label
+    private lazy var benefitsLabel: BenefitStackView = {
+        let benefitsView = BenefitStackView()
+        benefitsView.configure(with: viewModel.benefits)
+        return benefitsView
     }()
 
     private let subscribeButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.setTitle("Subscribe Now", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.backgroundColor = .systemBlue
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        button.backgroundColor = .appBlue
         button.tintColor = .white
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 4
         return button
     }()
 
@@ -131,56 +100,57 @@ class DetailViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 20
+        stackView.spacing = 0
         return stackView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
     }
 
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .label
+
+        view.addSubview(headerView)
         view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        contentView.addSubview(headerView)
-        contentView.addSubview(stackView)
+        scrollView.addSubview(stackView)
 
         stackView.addArrangedSubview(coverImageView)
+        stackView.addArrangedSubview(SpacerView(size: 20))
         stackView.addArrangedSubview(subscribeTitleLabel)
+        stackView.addArrangedSubview(SpacerView(size: 20))
         stackView.addArrangedSubview(subscribeSubtitleLabel)
+        stackView.addArrangedSubview(SpacerView(size: 25))
         stackView.addArrangedSubview(offerStackView)
+        stackView.addArrangedSubview(SpacerView(size: 30))
         stackView.addArrangedSubview(benefitsLabel)
+        stackView.addArrangedSubview(SpacerView(size: 50))
         stackView.addArrangedSubview(subscribeButton)
+        stackView.addArrangedSubview(SpacerView(size: 20))
         stackView.addArrangedSubview(disclaimerLabel)
 
-        setUpConstraints()
+        setupConstraints()
     }
 
-    private func setUpConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 60),
+
+            scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 20),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -20),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -20),
 
-            headerView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 60),
-
-            stackView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            stackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -40),
 
             coverImageView.heightAnchor.constraint(equalToConstant: 150),
 
@@ -190,9 +160,9 @@ class DetailViewController: UIViewController {
             subscribeTitleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             subscribeSubtitleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             offerStackView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.9),
-            benefitsLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.9),
+            benefitsLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.85),
             subscribeButton.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            disclaimerLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8)
+            disclaimerLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8),
         ])
     }
 }

@@ -19,6 +19,13 @@
 		FAFF917E2C72B7E800BB1956 /* SubscriptionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */; };
 		FAFF91802C72BA1100BB1956 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF917F2C72BA1100BB1956 /* CircleButton.swift */; };
 		FAFF91822C72DA4800BB1956 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91812C72DA4800BB1956 /* DetailViewModel.swift */; };
+		FAFF91862C72E79800BB1956 /* OfferStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91852C72E79800BB1956 /* OfferStackView.swift */; };
+		FAFF91882C72F29D00BB1956 /* BenefitStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91872C72F29D00BB1956 /* BenefitStackView.swift */; };
+		FAFF918A2C72F35000BB1956 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91892C72F35000BB1956 /* Offer.swift */; };
+		FAFF918C2C72F36700BB1956 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF918B2C72F36700BB1956 /* Subscription.swift */; };
+		FAFFF9052C72F7EA00B60D8E /* BenefitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9042C72F7EA00B60D8E /* BenefitView.swift */; };
+		FAFFF9072C730A5F00B60D8E /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9062C730A5F00B60D8E /* SpacerView.swift */; };
+		FAFFF90D2C730D5400B60D8E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF90C2C730D5400B60D8E /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +62,13 @@
 		FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPage.swift; sourceTree = "<group>"; };
 		FAFF917F2C72BA1100BB1956 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		FAFF91812C72DA4800BB1956 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		FAFF91852C72E79800BB1956 /* OfferStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferStackView.swift; sourceTree = "<group>"; };
+		FAFF91872C72F29D00BB1956 /* BenefitStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitStackView.swift; sourceTree = "<group>"; };
+		FAFF91892C72F35000BB1956 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		FAFF918B2C72F36700BB1956 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		FAFFF9042C72F7EA00B60D8E /* BenefitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitView.swift; sourceTree = "<group>"; };
+		FAFFF9062C730A5F00B60D8E /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
+		FAFFF90C2C730D5400B60D8E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,7 @@
 		FAFF91422C71879600BB1956 /* AugmentedNewspaper */ = {
 			isa = PBXGroup;
 			children = (
+				FAFFF9082C730C8700B60D8E /* UIComponents */,
 				FAFF91772C719A0400BB1956 /* Modules */,
 				FAFF91432C71879600BB1956 /* AppDelegate.swift */,
 				FAFF91452C71879600BB1956 /* SceneDelegate.swift */,
@@ -143,9 +158,9 @@
 		FAFF91782C719A0600BB1956 /* SubscriptionDetail */ = {
 			isa = PBXGroup;
 			children = (
-				FAFF91842C72E2BC00BB1956 /* ViewModel */,
-				FAFF91832C72E2BA00BB1956 /* View */,
 				FAFF917B2C72B7AB00BB1956 /* Model */,
+				FAFF91832C72E2BA00BB1956 /* View */,
+				FAFF91842C72E2BC00BB1956 /* ViewModel */,
 			);
 			path = SubscriptionDetail;
 			sourceTree = "<group>";
@@ -154,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */,
+				FAFF918B2C72F36700BB1956 /* Subscription.swift */,
+				FAFF91892C72F35000BB1956 /* Offer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,8 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				FAFF91472C71879600BB1956 /* DetailViewController.swift */,
-				FAFF91792C72B4E100BB1956 /* OfferView.swift */,
-				FAFF917F2C72BA1100BB1956 /* CircleButton.swift */,
+				FAFFF90B2C730CAC00B60D8E /* Benefit */,
+				FAFFF90A2C730CA500B60D8E /* Offer */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +191,34 @@
 				FAFF91812C72DA4800BB1956 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FAFFF9082C730C8700B60D8E /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF917F2C72BA1100BB1956 /* CircleButton.swift */,
+				FAFFF9062C730A5F00B60D8E /* SpacerView.swift */,
+				FAFFF90C2C730D5400B60D8E /* HeaderView.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		FAFFF90A2C730CA500B60D8E /* Offer */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF91852C72E79800BB1956 /* OfferStackView.swift */,
+				FAFF91792C72B4E100BB1956 /* OfferView.swift */,
+			);
+			path = Offer;
+			sourceTree = "<group>";
+		};
+		FAFFF90B2C730CAC00B60D8E /* Benefit */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF91872C72F29D00BB1956 /* BenefitStackView.swift */,
+				FAFFF9042C72F7EA00B60D8E /* BenefitView.swift */,
+			);
+			path = Benefit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,13 +372,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFFF9072C730A5F00B60D8E /* SpacerView.swift in Sources */,
 				FAFF91802C72BA1100BB1956 /* CircleButton.swift in Sources */,
 				FAFF91482C71879600BB1956 /* DetailViewController.swift in Sources */,
 				FAFF91442C71879600BB1956 /* AppDelegate.swift in Sources */,
 				FAFF914E2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld in Sources */,
 				FAFF917E2C72B7E800BB1956 /* SubscriptionPage.swift in Sources */,
 				FAFF91462C71879600BB1956 /* SceneDelegate.swift in Sources */,
+				FAFFF9052C72F7EA00B60D8E /* BenefitView.swift in Sources */,
+				FAFF918C2C72F36700BB1956 /* Subscription.swift in Sources */,
+				FAFF91862C72E79800BB1956 /* OfferStackView.swift in Sources */,
+				FAFFF90D2C730D5400B60D8E /* HeaderView.swift in Sources */,
+				FAFF918A2C72F35000BB1956 /* Offer.swift in Sources */,
 				FAFF917A2C72B4E100BB1956 /* OfferView.swift in Sources */,
+				FAFF91882C72F29D00BB1956 /* BenefitStackView.swift in Sources */,
 				FAFF91822C72DA4800BB1956 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,8 +556,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -534,8 +586,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
