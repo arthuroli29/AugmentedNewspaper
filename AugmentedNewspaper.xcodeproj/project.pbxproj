@@ -13,8 +13,6 @@
 		FAFF914E2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF914C2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld */; };
 		FAFF91502C71879900BB1956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFF914F2C71879900BB1956 /* Assets.xcassets */; };
 		FAFF915E2C71879900BB1956 /* AugmentedNewspaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF915D2C71879900BB1956 /* AugmentedNewspaperTests.swift */; };
-		FAFF91682C71879900BB1956 /* AugmentedNewspaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91672C71879900BB1956 /* AugmentedNewspaperUITests.swift */; };
-		FAFF916A2C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91692C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift */; };
 		FAFF917A2C72B4E100BB1956 /* OfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91792C72B4E100BB1956 /* OfferView.swift */; };
 		FAFF917E2C72B7E800BB1956 /* SubscriptionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */; };
 		FAFF91802C72BA1100BB1956 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF917F2C72BA1100BB1956 /* CircleButton.swift */; };
@@ -22,7 +20,7 @@
 		FAFF91862C72E79800BB1956 /* OfferStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91852C72E79800BB1956 /* OfferStackView.swift */; };
 		FAFF91882C72F29D00BB1956 /* BenefitStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91872C72F29D00BB1956 /* BenefitStackView.swift */; };
 		FAFF918A2C72F35000BB1956 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF91892C72F35000BB1956 /* Offer.swift */; };
-		FAFF918C2C72F36700BB1956 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF918B2C72F36700BB1956 /* Subscription.swift */; };
+		FAFF918C2C72F36700BB1956 /* SubscriptionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF918B2C72F36700BB1956 /* SubscriptionDetails.swift */; };
 		FAFFF9052C72F7EA00B60D8E /* BenefitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9042C72F7EA00B60D8E /* BenefitView.swift */; };
 		FAFFF9072C730A5F00B60D8E /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9062C730A5F00B60D8E /* SpacerView.swift */; };
 		FAFFF90D2C730D5400B60D8E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF90C2C730D5400B60D8E /* HeaderView.swift */; };
@@ -31,17 +29,12 @@
 		FAFFF9142C73146F00B60D8E /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9132C73146F00B60D8E /* SubscriptionService.swift */; };
 		FAFFF9172C731CDB00B60D8E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9162C731CDB00B60D8E /* CoreDataService.swift */; };
 		FAFFF9192C731D5300B60D8E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF9182C731D5300B60D8E /* PersistenceController.swift */; };
+		FAFFF91C2C7328EC00B60D8E /* MockSubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF91B2C7328EB00B60D8E /* MockSubscriptionService.swift */; };
+		FAFFF91E2C73291100B60D8E /* MockCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFF91D2C73291100B60D8E /* MockCoreDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		FAFF915A2C71879900BB1956 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAFF91382C71879600BB1956 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAFF913F2C71879600BB1956;
-			remoteInfo = AugmentedNewspaper;
-		};
-		FAFF91642C71879900BB1956 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAFF91382C71879600BB1956 /* Project object */;
 			proxyType = 1;
@@ -60,9 +53,6 @@
 		FAFF91542C71879900BB1956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFF91592C71879900BB1956 /* AugmentedNewspaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AugmentedNewspaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFF915D2C71879900BB1956 /* AugmentedNewspaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedNewspaperTests.swift; sourceTree = "<group>"; };
-		FAFF91632C71879900BB1956 /* AugmentedNewspaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AugmentedNewspaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAFF91672C71879900BB1956 /* AugmentedNewspaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedNewspaperUITests.swift; sourceTree = "<group>"; };
-		FAFF91692C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedNewspaperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FAFF91792C72B4E100BB1956 /* OfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferView.swift; sourceTree = "<group>"; };
 		FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPage.swift; sourceTree = "<group>"; };
 		FAFF917F2C72BA1100BB1956 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
@@ -70,7 +60,7 @@
 		FAFF91852C72E79800BB1956 /* OfferStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferStackView.swift; sourceTree = "<group>"; };
 		FAFF91872C72F29D00BB1956 /* BenefitStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitStackView.swift; sourceTree = "<group>"; };
 		FAFF91892C72F35000BB1956 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
-		FAFF918B2C72F36700BB1956 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		FAFF918B2C72F36700BB1956 /* SubscriptionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetails.swift; sourceTree = "<group>"; };
 		FAFFF9042C72F7EA00B60D8E /* BenefitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitView.swift; sourceTree = "<group>"; };
 		FAFFF9062C730A5F00B60D8E /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		FAFFF90C2C730D5400B60D8E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -79,6 +69,8 @@
 		FAFFF9132C73146F00B60D8E /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 		FAFFF9162C731CDB00B60D8E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		FAFFF9182C731D5300B60D8E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		FAFFF91B2C7328EB00B60D8E /* MockSubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSubscriptionService.swift; sourceTree = "<group>"; };
+		FAFFF91D2C73291100B60D8E /* MockCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,13 +88,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAFF91602C71879900BB1956 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,7 +96,6 @@
 			children = (
 				FAFF91422C71879600BB1956 /* AugmentedNewspaper */,
 				FAFF915C2C71879900BB1956 /* AugmentedNewspaperTests */,
-				FAFF91662C71879900BB1956 /* AugmentedNewspaperUITests */,
 				FAFF91412C71879600BB1956 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,7 +105,6 @@
 			children = (
 				FAFF91402C71879600BB1956 /* AugmentedNewspaper.app */,
 				FAFF91592C71879900BB1956 /* AugmentedNewspaperTests.xctest */,
-				FAFF91632C71879900BB1956 /* AugmentedNewspaperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,18 +128,10 @@
 		FAFF915C2C71879900BB1956 /* AugmentedNewspaperTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAFFF91A2C7328D200B60D8E /* Mocks */,
 				FAFF915D2C71879900BB1956 /* AugmentedNewspaperTests.swift */,
 			);
 			path = AugmentedNewspaperTests;
-			sourceTree = "<group>";
-		};
-		FAFF91662C71879900BB1956 /* AugmentedNewspaperUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FAFF91672C71879900BB1956 /* AugmentedNewspaperUITests.swift */,
-				FAFF91692C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift */,
-			);
-			path = AugmentedNewspaperUITests;
 			sourceTree = "<group>";
 		};
 		FAFF91772C719A0400BB1956 /* Modules */ = {
@@ -181,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFF917D2C72B7E800BB1956 /* SubscriptionPage.swift */,
-				FAFF918B2C72F36700BB1956 /* Subscription.swift */,
+				FAFF918B2C72F36700BB1956 /* SubscriptionDetails.swift */,
 				FAFF91892C72F35000BB1956 /* Offer.swift */,
 			);
 			path = Model;
@@ -252,6 +227,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		FAFFF91A2C7328D200B60D8E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FAFFF91B2C7328EB00B60D8E /* MockSubscriptionService.swift */,
+				FAFFF91D2C73291100B60D8E /* MockCoreDataService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,24 +275,6 @@
 			productReference = FAFF91592C71879900BB1956 /* AugmentedNewspaperTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FAFF91622C71879900BB1956 /* AugmentedNewspaperUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAFF91732C71879900BB1956 /* Build configuration list for PBXNativeTarget "AugmentedNewspaperUITests" */;
-			buildPhases = (
-				FAFF915F2C71879900BB1956 /* Sources */,
-				FAFF91602C71879900BB1956 /* Frameworks */,
-				FAFF91612C71879900BB1956 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAFF91652C71879900BB1956 /* PBXTargetDependency */,
-			);
-			name = AugmentedNewspaperUITests;
-			productName = AugmentedNewspaperUITests;
-			productReference = FAFF91632C71879900BB1956 /* AugmentedNewspaperUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -323,10 +289,6 @@
 						CreatedOnToolsVersion = 15.4;
 					};
 					FAFF91582C71879900BB1956 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = FAFF913F2C71879600BB1956;
-					};
-					FAFF91622C71879900BB1956 = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = FAFF913F2C71879600BB1956;
 					};
@@ -347,7 +309,6 @@
 			targets = (
 				FAFF913F2C71879600BB1956 /* AugmentedNewspaper */,
 				FAFF91582C71879900BB1956 /* AugmentedNewspaperTests */,
-				FAFF91622C71879900BB1956 /* AugmentedNewspaperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -362,13 +323,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FAFF91572C71879900BB1956 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAFF91612C71879900BB1956 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,7 +367,7 @@
 				FAFF91462C71879600BB1956 /* SceneDelegate.swift in Sources */,
 				FAFFF9142C73146F00B60D8E /* SubscriptionService.swift in Sources */,
 				FAFFF9052C72F7EA00B60D8E /* BenefitView.swift in Sources */,
-				FAFF918C2C72F36700BB1956 /* Subscription.swift in Sources */,
+				FAFF918C2C72F36700BB1956 /* SubscriptionDetails.swift in Sources */,
 				FAFF91862C72E79800BB1956 /* OfferStackView.swift in Sources */,
 				FAFFF90D2C730D5400B60D8E /* HeaderView.swift in Sources */,
 				FAFFF9172C731CDB00B60D8E /* CoreDataService.swift in Sources */,
@@ -430,16 +384,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFFF91C2C7328EC00B60D8E /* MockSubscriptionService.swift in Sources */,
 				FAFF915E2C71879900BB1956 /* AugmentedNewspaperTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAFF915F2C71879900BB1956 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAFF91682C71879900BB1956 /* AugmentedNewspaperUITests.swift in Sources */,
-				FAFF916A2C71879900BB1956 /* AugmentedNewspaperUITestsLaunchTests.swift in Sources */,
+				FAFFF91E2C73291100B60D8E /* MockCoreDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,11 +397,6 @@
 			isa = PBXTargetDependency;
 			target = FAFF913F2C71879600BB1956 /* AugmentedNewspaper */;
 			targetProxy = FAFF915A2C71879900BB1956 /* PBXContainerItemProxy */;
-		};
-		FAFF91652C71879900BB1956 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAFF913F2C71879600BB1956 /* AugmentedNewspaper */;
-			targetProxy = FAFF91642C71879900BB1956 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -678,42 +620,6 @@
 			};
 			name = Release;
 		};
-		FAFF91742C71879900BB1956 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5MV7WNHQCD;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = newspaper.arthuroli.AugmentedNewspaperUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AugmentedNewspaper;
-			};
-			name = Debug;
-		};
-		FAFF91752C71879900BB1956 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5MV7WNHQCD;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = newspaper.arthuroli.AugmentedNewspaperUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AugmentedNewspaper;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -740,15 +646,6 @@
 			buildConfigurations = (
 				FAFF91712C71879900BB1956 /* Debug */,
 				FAFF91722C71879900BB1956 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAFF91732C71879900BB1956 /* Build configuration list for PBXNativeTarget "AugmentedNewspaperUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAFF91742C71879900BB1956 /* Debug */,
-				FAFF91752C71879900BB1956 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

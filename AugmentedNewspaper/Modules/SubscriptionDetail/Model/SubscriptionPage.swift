@@ -14,7 +14,7 @@ struct SubscriptionPage: Codable, Equatable {
     }
 
     let headerLogo: String
-    let subscription: Subscription
+    let subscription: SubscriptionDetails
 
     enum CodingKeys: String, CodingKey {
         case headerLogo = "header_logo"

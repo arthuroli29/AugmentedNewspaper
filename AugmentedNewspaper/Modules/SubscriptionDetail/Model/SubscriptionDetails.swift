@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Subscription: Codable, Equatable {
-    static func == (lhs: Subscription, rhs: Subscription) -> Bool {
+struct SubscriptionDetails: Codable, Equatable {
+    static func == (lhs: SubscriptionDetails, rhs: SubscriptionDetails) -> Bool {
         lhs.offerPageStyle == rhs.offerPageStyle
             && lhs.coverImage == rhs.coverImage
             && lhs.subscribeTitle == rhs.subscribeTitle

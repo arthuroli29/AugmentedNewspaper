@@ -233,7 +233,7 @@ class DetailViewController: UIViewController {
         configure(with: subscriptionPage.subscription)
     }
 
-    private func configure(with subscription: Subscription) {
+    private func configure(with subscription: SubscriptionDetails) {
         Task {
             await coverImageView.loadImage(from: subscription.coverImage)
         }

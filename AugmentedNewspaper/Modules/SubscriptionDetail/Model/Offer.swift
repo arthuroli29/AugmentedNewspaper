@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Offer: Codable, Equatable {
+struct Offer: Codable, Equatable {
     static func == (lhs: Offer, rhs: Offer) -> Bool {
         lhs.price == rhs.price
             && lhs.description == rhs.description
@@ -15,9 +15,4 @@ class Offer: Codable, Equatable {
 
     let price: Double
     let description: String
-
-    init(price: Double, description: String) {
-        self.price = price
-        self.description = description
-    }
 }
