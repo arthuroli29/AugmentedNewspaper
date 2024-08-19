@@ -194,6 +194,7 @@ class DetailViewController: UIViewController {
 
     private func bindViewModel() {
         viewModel.subscriptionPagePublisher
+            .receive(on: DispatchQueue.main)
             .compactMap { $0 }
             .sink { [weak self] subscriptionPage in
                 self?.configure(with: subscriptionPage)
@@ -202,6 +203,7 @@ class DetailViewController: UIViewController {
             .store(in: &cancellables)
 
         viewModel.errorPublisher
+            .receive(on: DispatchQueue.main)
             .compactMap { $0 }
             .sink { [weak self] errorMessage in
                 self?.showErrorAlert(message: errorMessage)
@@ -223,7 +225,6 @@ class DetailViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-
 
     func configure(with subscriptionPage: SubscriptionPage) {
         Task {

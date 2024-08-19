@@ -67,7 +67,7 @@ class OfferView: UIStackView {
 
     func bindSelectedOffer(to selectedOfferPublisher: AnyPublisher<String?, Never>) {
         selectedOfferPublisher
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] selectedOffer in
                 guard let self = self else { return }
                 self.circleButton.isSelected = selectedOffer == self.id

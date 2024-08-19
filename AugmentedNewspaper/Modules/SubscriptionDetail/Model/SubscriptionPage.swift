@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct SubscriptionPage: Codable {
+struct SubscriptionPage: Codable, Equatable {
+    static func == (lhs: SubscriptionPage, rhs: SubscriptionPage) -> Bool {
+        lhs.headerLogo == rhs.headerLogo
+            && lhs.subscription == rhs.subscription
+    }
+
     let headerLogo: String
     let subscription: Subscription
 

@@ -7,7 +7,12 @@
 
 import Foundation
 
-class Offer: Codable {
+class Offer: Codable, Equatable {
+    static func == (lhs: Offer, rhs: Offer) -> Bool {
+        lhs.price == rhs.price
+            && lhs.description == rhs.description
+    }
+
     let price: Double
     let description: String
 

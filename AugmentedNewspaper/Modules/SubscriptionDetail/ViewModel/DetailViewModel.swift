@@ -11,6 +11,9 @@ import Combine
 protocol DetailViewModelProtocol {
     func viewDidLoad()
 
+    var subscriptionService: SubscriptionServiceProtocol { get }
+    var coreDataService: CoreDataServiceProtocol { get }
+
     func fetchSubscriptionPage() async
     var subscriptionPage: SubscriptionPage? { get }
     var subscriptionPagePublisher: Published<SubscriptionPage?>.Publisher { get }
@@ -25,7 +28,8 @@ protocol DetailViewModelProtocol {
 
 
 final class DetailViewModel: DetailViewModelProtocol {
-    private let subscriptionService: SubscriptionServiceProtocol
+    let subscriptionService: SubscriptionServiceProtocol
+    let coreDataService: CoreDataServiceProtocol
     private var cancellables = Set<AnyCancellable>()
 
     @Published var subscriptionPage: SubscriptionPage?
@@ -37,8 +41,12 @@ final class DetailViewModel: DetailViewModelProtocol {
     @Published var error: String?
     var errorPublisher: Published<String?>.Publisher { $error }
 
-    init(subscriptionService: SubscriptionServiceProtocol = SubscriptionService()) {
+    init(
+        subscriptionService: SubscriptionServiceProtocol = SubscriptionService(),
+        coreDataService: CoreDataServiceProtocol = CoreDataService()
+    ) {
         self.subscriptionService = subscriptionService
+        self.coreDataService = coreDataService
     }
 
     func viewDidLoad() {
@@ -51,14 +59,31 @@ final class DetailViewModel: DetailViewModelProtocol {
         subscriptionPage = nil
         error = nil
 
+        let cachedSubscriptionPageJson = self.coreDataService.fetchCachedSubscriptionPageData()
+        let cachedSubscriptionPage = cachedSubscriptionPageJson
+            .flatMap {
+                try? JSONDecoder().decode(SubscriptionPage.self, from: $0)
+            }
+
+        if let cachedSubscriptionPage {
+            self.subscriptionPage = cachedSubscriptionPage
+        }
+
         subscriptionService.fetchSubscriptionPage()
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {
                     self?.error = "Failed to load subscription page: \(error.localizedDescription)"
                 }
             }, receiveValue: { [weak self] subscriptionPage in
-                self?.subscriptionPage = subscriptionPage
+                guard let self = self else { return }
+
+                if cachedSubscriptionPage != subscriptionPage {
+                    self.subscriptionPage = subscriptionPage
+                    if let newJsonData = try? JSONEncoder().encode(subscriptionPage) {
+                        self.coreDataService.saveSubscriptionPageData(newJsonData)
+                    }
+                }
             })
             .store(in: &cancellables)
     }
