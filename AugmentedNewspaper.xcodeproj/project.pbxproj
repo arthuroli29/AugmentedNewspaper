@@ -112,6 +112,7 @@
 		FAFF91422C71879600BB1956 /* AugmentedNewspaper */ = {
 			isa = PBXGroup;
 			children = (
+				FAFFF91F2C732E9A00B60D8E /* Core Data */,
 				FAFFF90E2C730F1100B60D8E /* Extensions */,
 				FAFFF9082C730C8700B60D8E /* UIComponents */,
 				FAFF91772C719A0400BB1956 /* Modules */,
@@ -119,8 +120,6 @@
 				FAFF91452C71879600BB1956 /* SceneDelegate.swift */,
 				FAFF914F2C71879900BB1956 /* Assets.xcassets */,
 				FAFF91542C71879900BB1956 /* Info.plist */,
-				FAFF914C2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld */,
-				FAFFF9182C731D5300B60D8E /* PersistenceController.swift */,
 			);
 			path = AugmentedNewspaper;
 			sourceTree = "<group>";
@@ -175,7 +174,7 @@
 		FAFF91842C72E2BC00BB1956 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FAFFF9152C731B2700B60D8E /* Service */,
+				FAFFF9152C731B2700B60D8E /* Services */,
 				FAFF91812C72DA4800BB1956 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
@@ -218,13 +217,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FAFFF9152C731B2700B60D8E /* Service */ = {
+		FAFFF9152C731B2700B60D8E /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				FAFFF9132C73146F00B60D8E /* SubscriptionService.swift */,
 				FAFFF9162C731CDB00B60D8E /* CoreDataService.swift */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FAFFF91A2C7328D200B60D8E /* Mocks */ = {
@@ -234,6 +233,15 @@
 				FAFFF91D2C73291100B60D8E /* MockCoreDataService.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FAFFF91F2C732E9A00B60D8E /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF914C2C71879600BB1956 /* AugmentedNewspaper.xcdatamodeld */,
+				FAFFF9182C731D5300B60D8E /* PersistenceController.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
